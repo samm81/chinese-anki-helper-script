@@ -1,0 +1,59 @@
+{
+    "_meta": {
+        "hash": {
+            "sha256": "7de8108aca3ce6ccaf897e3dd2002f97e122a7a4bff0f88e775a2bbc6e1a29c2"
+        },
+        "host-environment-markers": {
+            "implementation_name": "cpython",
+            "implementation_version": "3.6.7",
+            "os_name": "posix",
+            "platform_machine": "x86_64",
+            "platform_python_implementation": "CPython",
+            "platform_release": "4.15.0-70-generic",
+            "platform_system": "Linux",
+            "platform_version": "#79-Ubuntu SMP Tue Nov 12 10:36:11 UTC 2019",
+            "python_full_version": "3.6.7",
+            "python_version": "3.6",
+            "sys_platform": "linux"
+        },
+        "pipfile-spec": 6,
+        "requires": {
+            "python_version": "3.6"
+        },
+        "sources": [
+            {
+                "name": "pypi",
+                "url": "https://pypi.python.org/simple",
+                "verify_ssl": true
+            }
+        ]
+    },
+    "default": {
+        "dragonmapper": {
+            "hashes": [
+                "sha256:21e0324ca05d553645887515202349e24427700f4c86d250d85d32b958d4bc31",
+                "sha256:f2584fb3b29df442907cf7422893becbb8c8429d9f6611f0ba111bdfec495ec9"
+            ],
+            "version": "==0.2.6"
+        },
+        "hanzidentifier": {
+            "hashes": [
+                "sha256:793a298430aa9a9d6ab344dc0ca0ab4bd1161d88c7da941d6554571093003cba"
+            ],
+            "version": "==1.0.2"
+        },
+        "opencc-python-reimplemented": {
+            "hashes": [
+                "sha256:db9a3eb1cc687dc846f2ff644698210fb74ee643df55504af56ffe5b8c4ffeaf"
+            ],
+            "version": "==0.1.5"
+        },
+        "zhon": {
+            "hashes": [
+                "sha256:793723575c46f10ace8846c579ce740b04c73e2aa583e04e000aedbd4a47f87f"
+            ],
+            "version": "==1.1.5"
+        }
+    },
+    "develop": {}
+}
