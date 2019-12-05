@@ -7,6 +7,7 @@ from cccedict import find_words
 from functools import wraps
 from enum import Enum
 from flashcardschemas import ChineseRecognitionOnly, word_to_ChineseRecognitionOnly
+from stroke import get_stroke
 
 s2t = OpenCC('s2t')
 t2s = OpenCC('t2s')
@@ -136,7 +137,9 @@ class FlashcardHelper(cmd.Cmd):
     pinyin = hanzi.to_pinyin(arg)
     zhuyin = hanzi.to_zhuyin(arg)
     english = input('english definition: ')
-    self.save_to_file(ChineseRecognitionOnly(simplified, traditional, pinyin, zhuyin, english, '', '', '', ''))
+    simplified_stroke = get_stroke(simplified)
+    traditional_stroke = get_stroke(traditional)
+    self.save_to_file(ChineseRecognitionOnly(simplified, traditional, pinyin, zhuyin, simplified_stroke, traditional_stroke, english, '', '', '', ''))
     self.transition_to(State.BEGIN)
 
   def do_EOF(self, arg):
