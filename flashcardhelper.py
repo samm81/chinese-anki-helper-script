@@ -6,7 +6,8 @@ from opencc import OpenCC
 from cccedict import find_words
 from functools import wraps
 from enum import Enum
-from flashcardschemas import ChineseRecognitionOnly, word_to_ChineseRecognitionOnly
+from flashcardschemas import ChineseRecognitionOnly, word_to_ChineseRecognitionOnly, ChineseRecognitionOnlyWithStroke
+from stroke import get_stroke
 
 s2t = OpenCC('s2t')
 t2s = OpenCC('t2s')
@@ -68,6 +69,9 @@ class FlashcardHelper(cmd.Cmd):
     definition = '; '.join(primaries)
     extra_definition = '; '.join(secondaries)
     flashcard = ChineseRecognitionOnly(self.word.simplified, self.word.traditional, self.word.pinyin, self.word.zhuyin, definition, extra_definition, '', '', '')
+    #simplified_stroke = get_stroke(self.word.simplified)
+    #traditional_stroke = get_stroke(self.word.traditional)
+    #flashcard = ChineseRecognitionOnlyWithStroke(self.word.simplified, self.word.traditional, self.word.pinyin, self.word.zhuyin, simplified_stroke, traditional_stroke, definition, extra_definition, '', '', '')
     return self.save_to_file(flashcard)
 
   def display_options(self, optionstrings, multiple=False):
@@ -137,6 +141,9 @@ class FlashcardHelper(cmd.Cmd):
     zhuyin = hanzi.to_zhuyin(arg)
     english = input('english definition: ')
     self.save_to_file(ChineseRecognitionOnly(simplified, traditional, pinyin, zhuyin, english, '', '', '', ''))
+    #simplified_stroke = get_stroke(simplified)
+    #traditional_stroke = get_stroke(traditional)
+    #self.save_to_file(ChineseRecognitionOnlyWithStroke(simplified, traditional, pinyin, zhuyin, simplified_stroke, traditional_stroke, english, '', '', '', ''))
     self.transition_to(State.BEGIN)
 
   def do_EOF(self, arg):
